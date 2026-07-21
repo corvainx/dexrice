@@ -420,7 +420,7 @@
         "compactLockScreen": false,
         "dimmerOpacity": 0,
         "enableBlurBehind": true,
-        "enableLockScreenCountdown": true,
+        "enableLockScreenCountdown": false,
         "enableLockScreenMediaControls": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
@@ -452,12 +452,12 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
-        "lockScreenBlur": 0.18,
+        "lockScreenBlur": 0.07,
         "lockScreenCountdownDuration": 3000,
         "lockScreenMonitors": [
         ],
         "lockScreenTint": 0,
-        "passwordChars": true,
+        "passwordChars": false,
         "radiusRatio": 1,
         "reverseScroll": false,
         "scaleRatio": 1.05,
@@ -538,7 +538,7 @@
         "disableWallpaper": true
     },
     "notifications": {
-        "backgroundOpacity": 1,
+        "backgroundOpacity": 0.6900000000000001,
         "clearDismissed": true,
         "criticalUrgencyDuration": 15,
         "density": "default",
@@ -588,8 +588,8 @@
         "notifyUpdates": true
     },
     "sessionMenu": {
-        "countdownDuration": 3000,
-        "enableCountdown": true,
+        "countdownDuration": 1000,
+        "enableCountdown": false,
         "largeButtonsLayout": "single-row",
         "largeButtonsStyle": true,
         "position": "center",
@@ -605,43 +605,43 @@
                 "action": "suspend",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "2"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "hibernate",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "3"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "reboot",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "4"
+                "keybind": "2"
             },
             {
                 "action": "logout",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "5"
+                "keybind": "3"
             },
             {
                 "action": "shutdown",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "6"
+                "keybind": "4"
             },
             {
                 "action": "rebootToUefi",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "7"
+                "keybind": "5"
             },
             {
                 "action": "userspaceReboot",
@@ -652,7 +652,7 @@
             }
         ],
         "showHeader": true,
-        "showKeybinds": true
+        "showKeybinds": false
     },
     "settingsVersion": 59,
     "systemMonitor": {
@@ -703,7 +703,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/dex/Pictures/Wallpapers",
+        "directory": "/home/dex/Pictures",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -723,7 +723,7 @@
         "showHiddenFiles": false,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
+        "sortOrder": "date_asc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
