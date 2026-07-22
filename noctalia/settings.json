@@ -242,6 +242,10 @@
                     "useDistroLogo": false
                 },
                 {
+                    "iconColor": "none",
+                    "id": "WallpaperSelector"
+                },
+                {
                     "defaultSettings": {
                         "audioCodec": "opus",
                         "audioSource": "default_output",
@@ -264,10 +268,6 @@
                         "videoSource": "portal"
                     },
                     "id": "plugin:screen-recorder"
-                },
-                {
-                    "iconColor": "none",
-                    "id": "WallpaperSelector"
                 }
             ]
         }
@@ -589,7 +589,7 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false,
+        "autoUpdate": true,
         "notifyUpdates": true
     },
     "sessionMenu": {
@@ -712,6 +712,20 @@
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Naysayer",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#2ec09c",
+                    "#8cde94",
+                    "#7ad0c6",
+                    "#ff0000"
+                ],
+                "path": "/home/dex/Pictures/wallhaven-p8ymjj_1920x1080.png",
+                "useWallpaperColors": false
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
