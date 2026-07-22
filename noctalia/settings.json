@@ -45,7 +45,7 @@
         "backgroundOpacity": 0.93,
         "barType": "simple",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 0.5,
+        "capsuleOpacity": 0.3,
         "contentPadding": 2,
         "density": "comfortable",
         "displayMode": "always_visible",
@@ -54,8 +54,8 @@
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 4,
-        "marginVertical": 4,
+        "marginHorizontal": 226,
+        "marginVertical": 0,
         "middleClickAction": "settings",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
@@ -96,6 +96,16 @@
             ],
             "left": [
                 {
+                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
+                    "customIconPath": "",
+                    "enableColorization": true,
+                    "icon": "rocket",
+                    "iconColor": "none",
+                    "id": "Launcher",
+                    "useDistroLogo": true
+                },
+                {
                     "characterCount": 2,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
@@ -115,16 +125,6 @@
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
-                },
-                {
-                    "colorizeSystemIcon": "none",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "rocket",
-                    "iconColor": "none",
-                    "id": "Launcher",
-                    "useDistroLogo": false
                 },
                 {
                     "compactMode": true,
@@ -297,14 +297,14 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "rainbow",
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Ayu",
+        "predefinedScheme": "Naysayer",
         "schedulingMode": "off",
         "syncGsettings": true,
-        "useWallpaperColors": true
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -371,6 +371,11 @@
         "gridSnap": false,
         "gridSnapScale": false,
         "monitorWidgets": [
+            {
+                "name": "eDP-1",
+                "widgets": [
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -379,7 +384,7 @@
         "backgroundOpacity": 1,
         "colorizeIcons": false,
         "deadOpacity": 0.6,
-        "displayMode": "auto_hide",
+        "displayMode": "always_visible",
         "dockType": "floating",
         "enabled": false,
         "floatingRatio": 1,
@@ -411,7 +416,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1,
+        "animationSpeed": 1.4000000000000001,
         "autoStartAuth": false,
         "avatarImage": "/home/dex/Pictures/7671-dexter.png",
         "boxRadiusRatio": 1,
@@ -458,7 +463,7 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": false,
-        "radiusRatio": 1,
+        "radiusRatio": 1.4000000000000001,
         "reverseScroll": false,
         "scaleRatio": 1.05,
         "screenRadiusRatio": 1,
@@ -504,7 +509,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Dhanbad",
+        "name": "Chandigarh",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
@@ -693,7 +698,7 @@
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.61,
+        "panelBackgroundOpacity": 0.5,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",

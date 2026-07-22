@@ -1,4 +1,5 @@
-fastfetch
+# Disable fish greeting
+set -g fish_greeting
 
 function starship_transient_prompt_func
     starship module character
@@ -8,6 +9,13 @@ function starship_transient_rprompt_func
 end
 starship init fish | source
 
+# eza aliases
+alias l="eza --icons"
+alias ll="eza -la --icons --git"
+alias lll="eza -lah --icons --git"
+alias lt="eza --tree --icons"
+
+alias reload="source ~/.config/fish/config.fish"
 alias matrix='unimatrix -s 95'
 alias ll='ls -a'
 alias yt='ytfzf'
