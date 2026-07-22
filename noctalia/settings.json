@@ -457,7 +457,7 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
-        "lockScreenBlur": 0.07,
+        "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 3000,
         "lockScreenMonitors": [
         ],
