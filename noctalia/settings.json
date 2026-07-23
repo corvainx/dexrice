@@ -645,8 +645,8 @@
                 "action": "rebootToUefi",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "5"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "userspaceReboot",
