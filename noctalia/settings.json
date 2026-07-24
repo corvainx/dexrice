@@ -19,7 +19,7 @@
         "overviewLayer": false,
         "pinnedApps": [
         ],
-        "position": "center",
+        "position": "bottom_center",
         "screenshotAnnotationTool": "",
         "showCategories": true,
         "showIconBackground": false,
@@ -42,10 +42,10 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.93,
-        "barType": "simple",
+        "backgroundOpacity": 0,
+        "barType": "floating",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 0.3,
+        "capsuleOpacity": 0,
         "contentPadding": 2,
         "density": "comfortable",
         "displayMode": "always_visible",
@@ -54,8 +54,8 @@
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 226,
-        "marginVertical": 0,
+        "marginHorizontal": 175,
+        "marginVertical": 5,
         "middleClickAction": "settings",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
@@ -297,14 +297,14 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "vibrant",
+        "generationMethod": "rainbow",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
         "predefinedScheme": "Naysayer",
         "schedulingMode": "off",
         "syncGsettings": true,
-        "useWallpaperColors": false
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -416,7 +416,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.4000000000000001,
+        "animationSpeed": 1.45,
         "autoStartAuth": false,
         "avatarImage": "/home/dex/Pictures/7671-dexter.png",
         "boxRadiusRatio": 1,
@@ -424,10 +424,10 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0,
-        "enableBlurBehind": true,
+        "enableBlurBehind": false,
         "enableLockScreenCountdown": false,
         "enableLockScreenMediaControls": true,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
@@ -505,14 +505,14 @@
     },
     "location": {
         "analogClockInCalendar": false,
-        "autoLocate": false,
+        "autoLocate": true,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Chandigarh",
+        "name": "Patna",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
-        "showWeekNumberInCalendar": false,
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
@@ -536,7 +536,7 @@
         "forced": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4141"
+        "nightTemp": "3971"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
@@ -700,11 +700,11 @@
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.5,
         "panelsAttachedToBar": true,
-        "scrollbarAlwaysVisible": true,
+        "scrollbarAlwaysVisible": false,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
-        "translucentWidgets": false
+        "translucentWidgets": true
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -712,6 +712,20 @@
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Ayu",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#b2c9df",
+                    "#bfc7d1",
+                    "#d8bedc",
+                    "#ffb4ab"
+                ],
+                "path": "/home/dex/Pictures/wallhaven-p8ymjj_1920x1080.png",
+                "useWallpaperColors": true
+            },
             {
                 "appearance": "dark",
                 "colorScheme": "Naysayer",
@@ -723,8 +737,50 @@
                     "#7ad0c6",
                     "#ff0000"
                 ],
-                "path": "/home/dex/Pictures/wallhaven-p8ymjj_1920x1080.png",
+                "path": "/home/dex/Pictures/Wallpaper/green_dragon.jpg",
                 "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Ayu",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#8dda57",
+                    "#add191",
+                    "#00e0b6",
+                    "#ffb4ab"
+                ],
+                "path": "/home/dex/Pictures/gardern.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Naysayer",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#ffb874",
+                    "#e2c0a4",
+                    "#c1cc99",
+                    "#ffb4ab"
+                ],
+                "path": "/home/dex/Pictures/wp4539143.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Naysayer",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#64dbb4",
+                    "#b2ccc0",
+                    "#a7cce1",
+                    "#ffb4ab"
+                ],
+                "path": "/home/dex/Pictures/osakajade.jpg",
+                "useWallpaperColors": true
             }
         ],
         "fillColor": "#000000",
