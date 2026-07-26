@@ -31,6 +31,8 @@ These are my personal dotfiles for a minimal, keyboard-driven Hyprland desktop o
 - Arch Linux (or an Arch-based distro with `pacman`)
 - A non-root user with `sudo` access
 
+> **A fresh install is recommended.** I built and use this on top of [minimaLinux](https://github.com/Echilonvibin/minimaLinux), a bare Hyprland starter with no extra bloat. Starting from that base (or an equally clean Hyprland install) avoids conflicts with whatever bar, shell, or configs a non-fresh system already has in place.
+
 ## Installation
 
 This assumes Hyprland, Noctalia, and everything else are already installed. The script only symlinks the dotfiles into `~/.config`, it doesn't install packages.
