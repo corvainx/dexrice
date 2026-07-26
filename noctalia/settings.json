@@ -402,7 +402,7 @@
         "launcherUseDistroLogo": false,
         "monitors": [
         ],
-        "onlySameOutput": true,
+        "onlySameOutput": false,
         "pinnedApps": [
         ],
         "pinnedStatic": false,
@@ -410,7 +410,7 @@
         "showDockIndicator": false,
         "showLauncherIcon": false,
         "sitOnFrame": false,
-        "size": 1
+        "size": 0.89
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
@@ -713,7 +713,7 @@
         "fontDefault": "DejaVu LGC Sans",
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
-        "fontFixedScale": 1,
+        "fontFixedScale": 1.05,
         "panelBackgroundOpacity": 0.5,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": false,
