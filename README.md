@@ -2,7 +2,7 @@
 
 <img src="screenshot.png" alt="Desktop preview" width="100%">
 
-# arch-hyprland-dotfiles
+# dexrice
 
 **A clean, minimal Hyprland setup for Arch Linux, powered by Noctalia.**
 
@@ -36,8 +36,8 @@ These are my personal dotfiles for a minimal, keyboard-driven Hyprland desktop o
 This assumes Hyprland, Noctalia, and everything else are already installed. The script only symlinks the dotfiles into `~/.config`, it doesn't install packages.
 
 ```bash
-git clone https://github.com/ishmweet/arch-hyprland-dotfiles.git
-cd arch-hyprland-dotfiles
+git clone https://github.com/ishmweet/dexrice.git
+cd dexrice
 ./install.sh
 ```
 
