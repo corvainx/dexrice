@@ -65,4 +65,6 @@ done
 run mkdir -p "$HOME/.local/share/icons"
 backup_and_link "$REPO_DIR/icons/macOS" "$HOME/.local/share/icons/macOS"
 
+backup_and_link "$REPO_DIR/starship.toml" "$CONFIG_DIR/starship.toml"
+
 echo "Done."
