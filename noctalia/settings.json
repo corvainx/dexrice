@@ -168,7 +168,7 @@
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
-                    "showArtistFirst": true,
+                    "showArtistFirst": false,
                     "showProgressRing": true,
                     "showVisualizer": false,
                     "textColor": "none",
@@ -704,10 +704,6 @@
             {
                 "enabled": true,
                 "id": "yazi"
-            },
-            {
-                "enabled": true,
-                "id": "discord"
             }
         ],
         "enableUserTheming": true
