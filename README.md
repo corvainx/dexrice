@@ -40,7 +40,7 @@ This assumes Hyprland, Noctalia, and everything else are already installed. The 
 ```bash
 git clone https://github.com/ishmweet/dexrice.git
 cd dexrice
-./install.sh
+./setup.sh
 ```
 
 Must be run **from inside the cloned repo**, since it resolves paths relative to its own location.
@@ -48,7 +48,7 @@ Must be run **from inside the cloned repo**, since it resolves paths relative to
 Preview what it'll do first, without changing anything:
 
 ```bash
-./install.sh --dry-run
+./setup.sh --dry-run
 ```
 
 Safe to re-run. It backs up anything it'd overwrite to `~/.config-backup/<timestamp>/` first.

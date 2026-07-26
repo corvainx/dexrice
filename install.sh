@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # Usage:
-#   ./install.sh              # link everything
-#   ./install.sh --dry-run    # print what would happen, change nothing
+#   ./setup.sh              # link everything
+#   ./setup.sh --dry-run    # print what would happen, change nothing
 
 set -euo pipefail
 
