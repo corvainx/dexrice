@@ -37,7 +37,7 @@ These are my personal dotfiles for a minimal, keyboard-driven Hyprland desktop o
 This assumes Hyprland, Noctalia, and everything else are already installed. The script copies the dotfiles into `~/.config` as real files, it doesn't install packages.
 
 ```bash
-git clone https://github.com/ishmweet/dexrice.git
+git clone https://github.com/corvainx/dexrice.git
 cd dexrice
 ./setup.sh
 ```
