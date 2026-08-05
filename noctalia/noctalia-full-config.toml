@@ -365,7 +365,7 @@ enabled = [ "noctalia/screen_recorder" ]
 
 [shell]
 app_icon_colorize = false
-avatar_path = ""
+avatar_path = "/home/dex/Pictures/7671-dexter.png"
 button_borders = true
 card_borders = true
 clipboard_auto_paste = "auto"
