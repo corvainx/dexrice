@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in brave brave-origin firefox zen-browser vivaldi librewolf; do
+for b in brave-origin brave firefox zen-browser vivaldi librewolf; do
   if command -v "$b" >/dev/null 2>&1; then
     exec "$b" "$@"
     exit 0
