@@ -20,7 +20,7 @@ These are my personal dotfiles for a minimal, keyboard-driven Hyprland desktop o
 **Highlights**
 
 - Scrolling-tiling layout, minimal gaps, soft rounded corners
-- Custom Noctalia (v4.7.7) bar layout, control center, and color scheme
+- Custom Noctalia (v5.0.0) bar layout, control center, and color scheme
 - Several kitty themes included (Catppuccin, Tokyo Night, Cyberdream, Oxocarbon)
 - Hardware-agnostic monitor config: Hyprland auto-detects your display, no editing required
 - Fallback launcher scripts (e.g. browser picker checks for Brave → Firefox → Zen → Vivaldi → LibreWolf, whichever is installed)
