@@ -250,7 +250,7 @@ wallpaper = ""
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000002", "lockscreen-widget-0000000000000003" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000003" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -283,33 +283,11 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_unlock_hint = true
         show_weather = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 160.0
-    box_width = 368.0
-    cx = 960.0
-    cy = 636.0
-    enabled = true
-    output = "eDP-1"
-    rotation = 0.0
-    type = "media_player"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
-        background = true
-        background_color = "surface"
-        background_opacity = 0.80000000000000004
-        background_padding = 10
-        background_radius = 12
-        color = "on_surface"
-        font_family = ""
-        hide_when_no_media = false
-        layout = "horizontal"
-        shadow = true
-
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 224.0
-    box_width = 448.0
+    box_height = 240.0
+    box_width = 464.0
     cx = 960.0
-    cy = 156.0
+    cy = 172.0
     enabled = true
     output = "eDP-1"
     rotation = 0.0
