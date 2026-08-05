@@ -221,8 +221,9 @@ hl.bind(
 	{ locked = true, description = "Brightness down" }
 )
 
--- 12. Toggle session menu
+-- 12. Others
 local ipc = "noctalia msg "
 hl.bind("SUPER + Escape", hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
+hl.bind(KEY.LOCK, hl.dsp.exec_cmd("noctalia msg session lock"), { description = "Lock screen" })
 
 return true
