@@ -7,7 +7,7 @@
 
 [![Made for](https://img.shields.io/badge/made%20for-Arch%20Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org)
 [![WM](https://img.shields.io/badge/WM-Hyprland-89b4fa?style=for-the-badge)](https://hyprland.org)
-[![Shell](https://img.shields.io/badge/Shell-Noctalia%20v4.7.7-f5c2e7?style=for-the-badge)](https://docs.noctalia.dev)
+[![Shell](https://img.shields.io/badge/Shell-Noctalia%20v5.0.0-f5c2e7?style=for-the-badge)](https://docs.noctalia.dev)
 
 </div>
 
