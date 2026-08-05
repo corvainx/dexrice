@@ -1,6 +1,6 @@
 [accessibility]
 high_contrast = false
-ui_scale = 1.1499999761581421
+ui_scale = 1.2000000476837158
 
 [audio]
 enable_overdrive = false
@@ -238,19 +238,19 @@ sunset = ""
 
 [lockscreen]
 allow_empty_password = false
-blur_intensity = 0.0
+blur_intensity = 0.25
 blurred_desktop = false
 enabled = true
 fingerprint = true
 lock_before_suspend = true
 monitors = []
-tint_intensity = 0.0
+tint_intensity = 0.099999994039535522
 wallpaper = ""
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000002", "lockscreen-widget-0000000000000003" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -283,17 +283,52 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_unlock_hint = true
         show_weather = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 208.0
-    cy = 140.0
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 160.0
+    box_width = 368.0
+    cx = 960.0
+    cy = 636.0
     enabled = true
     output = "eDP-1"
     rotation = 0.0
-    type = "weather"
+    type = "media_player"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = true
+        background_color = "surface"
+        background_opacity = 0.80000000000000004
+        background_padding = 10
+        background_radius = 12
+        color = "on_surface"
+        font_family = ""
+        hide_when_no_media = false
+        layout = "horizontal"
+        shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 224.0
+    box_width = 448.0
+    cx = 960.0
+    cy = 156.0
+    enabled = true
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background = true
+        background_color = "surface"
+        background_opacity = 0.0
+        background_padding = 10
+        background_radius = 12
+        center_text = false
+        circle = true
+        clock_style = "digital"
+        color = "on_surface"
+        font_family = ""
+        format = "{:%H:%M}"
+        shadow = true
+        timezone = ""
 
 [nightlight]
 enabled = true
