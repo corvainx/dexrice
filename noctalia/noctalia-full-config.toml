@@ -345,7 +345,8 @@ scale = 1.0
     volume_output = true
     wifi = true
 
-[plugin_settings]
+[plugin_settings."noctalia/screen_recorder"]
+video_source = "focused"
 
 [plugins]
 auto_update = true
@@ -582,7 +583,7 @@ swap_pct_critical_threshold = 80.0
 builtin = "Noctalia"
 community_palette = "Oxocarbon"
 custom_palette = ""
-mode = "dark"
+mode = "auto"
 pure_black_dark = true
 source = "wallpaper"
 wallpaper_scheme = "m3-rainbow"
