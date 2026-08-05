@@ -88,4 +88,7 @@ materialize "$REPO_DIR/icons/macOS" "$HOME/.local/share/icons/macOS"
 
 materialize "$REPO_DIR/starship.toml" "$CONFIG_DIR/starship.toml"
 
+run sudo pacman -S --needed pamixer brightnessctl
+run sudo usermod -aG video "$USER"
+
 echo -e "\033[32mSetup complete. Log out and back into your session (or reboot) for all changes to take effect.\033[0m"
