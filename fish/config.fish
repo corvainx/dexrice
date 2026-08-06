@@ -1,6 +1,11 @@
 # Disable fish greeting
 set -g fish_greeting
 
+# Colors
+set -U fish_color_param d4d4d4
+set -U fish_color_command d4d4d4
+set -U fish_color_valid_path d4d4d4
+
 function starship_transient_prompt_func
     starship module character
 end
