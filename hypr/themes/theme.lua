@@ -19,6 +19,10 @@ hl.config({
 		gaps_in = 3,
 		gaps_out = 4,
 		border_size = 2,
+		col = {
+			active_border = "rgba(33333399)",
+			inactive_border = "rgba(1e1e1eaa)",
+		},
 		resize_on_border = true,
 		allow_tearing = false,
 		layout = "scrolling",
@@ -34,7 +38,7 @@ hl.config({
 		fullscreen_opacity = 1.0,
 		blur = {
 			enabled = true,
-			size = 4,
+			size = 5,
 			passes = 4,
 			new_optimizations = true,
 			ignore_opacity = true,
