@@ -16,7 +16,7 @@ end
 
 hl.config({
 	general = {
-		gaps_in = 2,
+		gaps_in = 3,
 		gaps_out = 4,
 		border_size = 2,
 		resize_on_border = true,
@@ -25,7 +25,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 8,
+		rounding = 14,
 		shadow = {
 			enabled = true,
 		},
