@@ -440,7 +440,7 @@ time_format = "{:%H:%M}"
         prefix = ""
 
         [shell.launcher.providers.wallpaper]
-        global = true
+        global = false
         prefix = ""
 
     [shell.mpris]
@@ -593,17 +593,17 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Noctalia"
+builtin = "Eldritch"
 community_palette = "Oxocarbon"
 custom_palette = ""
 mode = "dark"
 pure_black_dark = true
-source = "wallpaper"
-wallpaper_scheme = "m3-rainbow"
+source = "builtin"
+wallpaper_scheme = "vibrant"
 
     [theme.templates]
     builtin_ids = [ "cava", "gtk3", "gtk4", "hyprland", "qt" ]
-    community_ids = []
+    community_ids = [ "fastfetch" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -677,7 +677,7 @@ hide_when_single_layout = false
 type = "keyboard_layout"
 
 [widget.launcher]
-custom_image = "/home/dex/Pictures/cachy_logo.png"
+custom_image = ""
 scale = 1.2000000000000002
 type = "launcher"
 
