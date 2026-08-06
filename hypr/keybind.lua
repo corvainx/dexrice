@@ -208,6 +208,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, des
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, description = "Previous track" })
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 5"), { locked = true, description = "Volume up" })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"), { locked = true, description = "Volume down" })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"), { locked = true, description = "Toggle mute" })
 
 -- 11. Brightness
 hl.bind(
