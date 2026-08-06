@@ -1,5 +1,12 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[directory]
+style = "bold #d4d4d4"
+
+[character]
+success_symbol = "[❯](#ffffff)"
+error_symbol = "[❯](#ffffff)"
+
 [aws]
 symbol = " "
 
@@ -30,8 +37,6 @@ symbol = " "
 [deno]
 symbol = " "
 
-[directory]
-read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
