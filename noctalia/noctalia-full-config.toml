@@ -19,15 +19,16 @@ order = [ "default" ]
 
     [bar.default]
     auto_hide = false
-    background_opacity = 0.39999997615814209
+    background_opacity = 0.0
     border = "outline"
     border_width = 0.0
-    capsule = false
-    capsule_fill = "surface_variant"
+    capsule = true
+    capsule_fill = "surface"
+    capsule_foreground = "tertiary"
     capsule_group = []
-    capsule_opacity = 1.0
-    capsule_padding = 6.0
-    capsule_thickness = 0.75999999046325684
+    capsule_opacity = 0.64999997615814209
+    capsule_padding = 8.0
+    capsule_thickness = 0.8399999737739563
     center = [ "clock", "audio_visualizer" ]
     concave_edge_corners = false
     contact_shadow = false
@@ -37,7 +38,7 @@ order = [ "default" ]
     hover_highlight = true
     layer = "top"
     margin_edge = 0
-    margin_ends = 175
+    margin_ends = 0
     margin_opposite_edge = 0
     padding = 15
     panel_overlap = 1
@@ -54,7 +55,7 @@ order = [ "default" ]
     smart_auto_hide = false
     start = [ "launcher", "workspaces", "ram", "media" ]
     thickness = 34
-    widget_spacing = 10
+    widget_spacing = 8
 
         [bar.default.dead_zone]
 
@@ -599,10 +600,10 @@ custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "m3-monochrome"
 
     [theme.templates]
-    builtin_ids = [ "cava", "gtk3", "gtk4", "hyprland", "qt" ]
+    builtin_ids = [ "cava", "gtk3", "gtk4", "qt" ]
     community_ids = [ "fastfetch" ]
     enable_builtin_templates = true
     enable_community_templates = true
@@ -678,6 +679,7 @@ type = "keyboard_layout"
 
 [widget.launcher]
 custom_image = ""
+glyph = "biohazard"
 scale = 1.2000000000000002
 type = "launcher"
 
