@@ -29,7 +29,7 @@ order = [ "default" ]
     capsule_opacity = 0.64999997615814209
     capsule_padding = 8.0
     capsule_thickness = 0.8399999737739563
-    center = [ "clock", "audio_visualizer" ]
+    center = [ "clock" ]
     concave_edge_corners = false
     contact_shadow = false
     enabled = true
@@ -721,6 +721,10 @@ type = "sysmon"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
+
+[widget.session]
+color = "#FF000C"
+type = "session"
 
 [widget.spacer]
 interactive = false
