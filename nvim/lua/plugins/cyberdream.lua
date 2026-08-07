@@ -13,3 +13,5 @@ return {
     end,
   },
 }
+
+-- comment the vim.cmd.colorscheme line if u dont wanna use this theme
