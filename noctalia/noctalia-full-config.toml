@@ -33,7 +33,7 @@ order = [ "default" ]
     concave_edge_corners = false
     contact_shadow = false
     enabled = true
-    end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "recorder", "session" ]
+    end = [ "tray", "notifications", "network", "bluetooth", "battery", "recorder", "session" ]
     font_weight = 500
     hover_highlight = true
     layer = "top"
@@ -723,6 +723,7 @@ type = "sysmon"
 type = "noctalia/screen_recorder:recorder"
 
 [widget.session]
+capsule_radius = "auto"
 color = "#FF1919"
 type = "session"
 
@@ -733,6 +734,10 @@ type = "spacer"
 [widget.temp]
 stat = "cpu_temp"
 type = "sysmon"
+
+[widget.tray]
+drawer = true
+type = "tray"
 
 [widget.volume]
 show_label = false
