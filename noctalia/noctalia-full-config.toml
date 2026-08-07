@@ -723,7 +723,7 @@ type = "sysmon"
 type = "noctalia/screen_recorder:recorder"
 
 [widget.session]
-color = "#FF000C"
+color = "#FF1919"
 type = "session"
 
 [widget.spacer]
