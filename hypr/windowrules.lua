@@ -90,4 +90,3 @@ hl.window_rule({ match = { class = "^io\\.github\\.flattool\\.Warehouse$" }, opa
 
 -- Misc rules
 hl.window_rule({ match = { class = "^.*jetbrains.*$", title = "^win[0-9]+$" }, no_initial_focus = true })
-hl.window_rule({ match = { class = "^kitty$" }, no_blur = false, opacity = 1.0 })
