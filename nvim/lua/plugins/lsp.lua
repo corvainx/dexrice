@@ -5,6 +5,14 @@ return {
       inlay_hints = {
         enabled = false,
       },
+
+      servers = {
+        clangd = {},
+        pyright = {},
+        gopls = {},
+        rust_analyzer = {},
+        jdtls = {},
+      },
     },
   },
 }
