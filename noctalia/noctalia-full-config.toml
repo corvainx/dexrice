@@ -24,7 +24,7 @@ order = [ "default" ]
     border_width = 0.0
     capsule = true
     capsule_fill = "surface"
-    capsule_foreground = "tertiary"
+    capsule_foreground = "on_surface"
     capsule_group = []
     capsule_opacity = 0.64999997615814209
     capsule_padding = 8.0
@@ -49,13 +49,13 @@ order = [ "default" ]
     radius_top_left = 35
     radius_top_right = 35
     reserve_space = true
-    scale = 1.1499999761581421
+    scale = 1.2000000476837158
     shadow = false
     show_on_workspace_switch = true
     smart_auto_hide = false
-    start = [ "launcher", "workspaces", "ram", "media" ]
+    start = [ "launcher", "workspaces", "media" ]
     thickness = 34
-    widget_spacing = 8
+    widget_spacing = 4
 
         [bar.default.dead_zone]
 
@@ -594,13 +594,13 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Eldritch"
+builtin = "Ayu"
 community_palette = "Oxocarbon"
 custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-monochrome"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "cava", "gtk3", "gtk4", "qt" ]
