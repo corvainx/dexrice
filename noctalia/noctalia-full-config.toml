@@ -413,7 +413,7 @@ time_format = "{:%H:%M}"
 
     [shell.animation]
     enabled = true
-    speed = 1.0
+    speed = 1.1000000238418579
 
     [shell.greeter_sync]
     auto_sync = false
