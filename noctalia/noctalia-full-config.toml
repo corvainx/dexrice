@@ -74,6 +74,7 @@ refresh_minutes = 15
 
 [control_center]
 hidden_tabs = []
+show_session_button = true
 show_shortcut_labels = true
 sidebar = "compact"
 sidebar_section = "compact"
@@ -249,9 +250,9 @@ tint_intensity = 0.099999994039535522
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = true
+enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000003" ]
+widget_order = [ "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -284,31 +285,6 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_unlock_hint = true
         show_weather = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 240.0
-    box_width = 464.0
-    cx = 960.0
-    cy = 172.0
-    enabled = true
-    output = "eDP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
-        background = true
-        background_color = "surface"
-        background_opacity = 0.0
-        background_padding = 10
-        background_radius = 12
-        center_text = false
-        circle = true
-        clock_style = "digital"
-        color = "on_surface"
-        font_family = ""
-        format = "{:%H:%M}"
-        shadow = true
-        timezone = ""
-
 [nightlight]
 enabled = true
 force = true
@@ -322,6 +298,7 @@ collapse_on_dismiss = true
 enable_daemon = true
 history_retention_hours = 0
 layer = "top"
+max_visible = 0
 monitors = []
 offset_x = 20
 offset_y = 8
@@ -405,6 +382,7 @@ popup_borders = true
 popup_shadows = false
 screen_time_enabled = false
 settings_show_advanced = true
+settings_window_translucent = false
 setup_wizard_enabled = true
 shared_gl_context = true
 show_location = true
@@ -559,6 +537,8 @@ key_file = ""
 key_source = "secret-service"
 
 [system.monitor]
+cpu_freq_activity_threshold = 2.5
+cpu_freq_critical_threshold = 4.5
 cpu_poll_seconds = 2.0
 cpu_temp_activity_threshold = 60.0
 cpu_temp_critical_threshold = 85.0
@@ -600,7 +580,7 @@ custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-content"
+wallpaper_scheme = "m3-fruit-salad"
 
     [theme.templates]
     builtin_ids = [ "cava", "gtk3", "gtk4", "qt" ]
