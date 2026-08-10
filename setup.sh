@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+
 # Usage:
 #   ./setup.sh              # copy configs from this repo into ~/.config (real files, no symlinks)
 #   ./setup.sh --dry-run    # print what would happen, change nothing
@@ -43,40 +43,23 @@ backup_existing() {
   local dest="$1"
   run mkdir -p "$BACKUP_DIR"
   run mv "$dest" "$BACKUP_DIR/$(basename "$dest")"
-  echo "  backed up: $dest -> $BACKUP_DIR/$(basename "$dest")"
+  if ! $DRY_RUN; then
+    echo "  backed up: $dest -> $BACKUP_DIR/$(basename "$dest")"
+  fi
 }
 
 materialize() {
   local src="$1" dest="$2"
 
-  if [[ -L "$dest" ]]; then
-    local target
-    target="$(readlink -f "$dest")"
-
-    if [[ -e "$target" ]]; then
-      echo "  migrating symlink: $dest (was -> $target)"
-      run cp -aL "$target" "$dest.dexrice-tmp"
-      run rm "$dest"
-      run mv "$dest.dexrice-tmp" "$dest"
-      echo "  now a real copy: $dest"
-    else
-      echo "  broken symlink at $dest, restoring from repo"
-      run rm "$dest"
-      run mkdir -p "$(dirname "$dest")"
-      run cp -a "$src" "$dest"
-      echo "  copied: $src -> $dest"
-    fi
-    return
-  fi
-
-  if [[ -e "$dest" ]]; then
-    echo "  already a real file/dir, leaving as-is: $dest"
-    return
+  if [[ -e "$dest" || -L "$dest" ]]; then
+    backup_existing "$dest"
   fi
 
   run mkdir -p "$(dirname "$dest")"
   run cp -a "$src" "$dest"
-  echo "  copied: $src -> $dest"
+  if ! $DRY_RUN; then
+    echo "  copied: $src -> $dest"
+  fi
 }
 
 for name in "${!LINK_MAP[@]}"; do
