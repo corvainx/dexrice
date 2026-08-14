@@ -54,6 +54,6 @@ Safe to re-run. It backs up anything it'd overwrite to `~/.config-backup/<timest
 
 ## Notes
 
-- `hypr/keybinds.lua` binds the editor key to VS Code (`code`) by default. Change the `$EDITOR` variable if you use something else.
+- `hypr/keybinds.lua` binds the editor key to VS Codium (`codium`) by default. Change the `$EDITOR` variable if you use something else.
 - `fish/config.fish` includes a few personal project aliases (`cdv`, `cdf`, `cdn`, `cdp`, `cdb`, `agy`, `vel`) pointing at my own repos. Harmless if unused, feel free to delete them.
 - After installing, log out and back into Hyprland (or reboot) to pick everything up.
