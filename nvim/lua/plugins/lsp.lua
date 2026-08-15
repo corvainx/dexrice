@@ -9,8 +9,6 @@ return {
       servers = {
         clangd = {},
         pyright = {},
-        gopls = {},
-        rust_analyzer = {},
         jdtls = {},
       },
     },
