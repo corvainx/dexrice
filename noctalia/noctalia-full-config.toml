@@ -19,7 +19,7 @@ order = [ "default" ]
 
     [bar.default]
     auto_hide = false
-    background_opacity = 0.0
+    background_opacity = 0.44999998807907104
     border = "primary"
     border_width = 0.0
     capsule = false
@@ -201,6 +201,7 @@ pre_action_fade_seconds = 2.0
     action = "lock"
     command = ""
     enabled = false
+    locked_timeout = 0.0
     resume_command = ""
     timeout = 600.0
 
@@ -208,6 +209,7 @@ pre_action_fade_seconds = 2.0
     action = "lock_and_suspend"
     command = ""
     enabled = false
+    locked_timeout = 0.0
     resume_command = ""
     timeout = 900.0
 
@@ -215,6 +217,7 @@ pre_action_fade_seconds = 2.0
     action = "screen_off"
     command = ""
     enabled = false
+    locked_timeout = 0.0
     resume_command = ""
     timeout = 660.0
 
@@ -250,9 +253,9 @@ tint_intensity = 0.099999994039535522
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = true
+enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [ "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -284,19 +287,6 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 288.0
-    box_width = 464.0
-    cx = 960.0
-    cy = 204.0
-    enabled = true
-    output = "eDP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background_opacity = 0.0
 
 [nightlight]
 enabled = true
@@ -417,7 +407,9 @@ time_format = "{:%H:%M}"
     categories = true
     compact = false
     fetch_exchange_rates = true
+    pinned = []
     provider_prefix = "/"
+    show_app_actions = false
     show_icons = true
     sort_by_usage = true
 
@@ -602,7 +594,7 @@ wallpaper_scheme = "m3-fruit-salad"
     enable_community_templates = true
 
 [wallpaper]
-directory = "/home/dex/Pictures"
+directory = "/home/dex/dexrice/backgrounds"
 directory_dark = ""
 directory_light = ""
 edge_smoothness = 0.30000001192092896
