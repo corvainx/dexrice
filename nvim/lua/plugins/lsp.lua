@@ -8,7 +8,6 @@ return {
 
       servers = {
         clangd = {},
-        pyright = {},
         jdtls = {},
       },
     },
