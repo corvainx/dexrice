@@ -28,7 +28,7 @@ order = [ "default" ]
     capsule_group = []
     capsule_opacity = 0.64999997615814209
     capsule_padding = 8.0
-    capsule_thickness = 0.8399999737739563
+    capsule_thickness = 1.0
     center = [ "clock", "audio_visualizer" ]
     concave_edge_corners = false
     contact_shadow = false
@@ -40,7 +40,7 @@ order = [ "default" ]
     margin_edge = 5
     margin_ends = 180
     margin_opposite_edge = 0
-    padding = 15
+    padding = 12
     panel_overlap = 1
     position = "top"
     radius = 35
@@ -54,7 +54,7 @@ order = [ "default" ]
     show_on_workspace_switch = true
     smart_auto_hide = false
     start = [ "launcher", "workspaces", "media" ]
-    thickness = 34
+    thickness = 32
     widget_spacing = 12
 
         [bar.default.dead_zone]
@@ -683,6 +683,7 @@ art_size = 16.0
 hide_when_no_media = true
 max_length = 160
 min_length = 80.0
+scale = 0.95000000000000007
 title_scroll = "on_hover"
 type = "media"
 
