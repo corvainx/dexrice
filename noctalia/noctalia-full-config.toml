@@ -29,7 +29,7 @@ order = [ "default" ]
     capsule_opacity = 0.64999997615814209
     capsule_padding = 8.0
     capsule_thickness = 0.8399999737739563
-    center = [ "clock" ]
+    center = [ "clock", "audio_visualizer" ]
     concave_edge_corners = false
     contact_shadow = false
     enabled = true
@@ -37,8 +37,8 @@ order = [ "default" ]
     font_weight = 500
     hover_highlight = true
     layer = "top"
-    margin_edge = 0
-    margin_ends = 120
+    margin_edge = 5
+    margin_ends = 180
     margin_opposite_edge = 0
     padding = 15
     panel_overlap = 1
@@ -269,6 +269,8 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
     cy = 898.0
     enabled = true
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -585,7 +587,7 @@ custom_palette = ""
 mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
-wallpaper_scheme = "m3-fruit-salad"
+wallpaper_scheme = "m3-rainbow"
 
     [theme.templates]
     builtin_ids = [ "cava", "gtk3", "gtk4", "qt" ]
@@ -626,10 +628,10 @@ title_scroll = "none"
 type = "active_window"
 
 [widget.audio_visualizer]
-bands = 27
+bands = 20
 centered = false
 type = "audio_visualizer"
-width = 140
+width = 145
 
 [widget.battery]
 display_mode = "graphic"
@@ -679,7 +681,7 @@ type = "lock_keys"
 [widget.media]
 art_size = 16.0
 hide_when_no_media = true
-max_length = 120
+max_length = 160
 min_length = 80.0
 title_scroll = "on_hover"
 type = "media"
