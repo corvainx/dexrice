@@ -618,6 +618,7 @@ PACKAGES=(
     yaru-icon-theme
     humanity-icon-theme
     cava
+    unimatrix
     noto-fonts-emoji
     ttf-dejavu
     ttf-symbola
