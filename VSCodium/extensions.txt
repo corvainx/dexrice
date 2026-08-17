@@ -1,0 +1,7 @@
+illixion.vscode-vibrancy-continued
+kragleh.orangify
+nur-srijan.markdown-rich-preview
+pkief.material-icon-theme
+pkief.material-product-icons
+pomdtr.excalidraw-editor
+yandeu.five-server
