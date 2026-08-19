@@ -345,7 +345,7 @@ scale = 1.0
 video_source = "focused"
 
 [plugins]
-auto_update = true
+auto_update = "all"
 enabled = [ "noctalia/screen_recorder" ]
 
     [[plugins.source]]
