@@ -313,10 +313,10 @@ while true; do
     fi
 done
 
-BROWSER_CHOICE=8
+SELECTED_BROWSERS=()
 while true; do
     echo ""
-    echo "Web Browser Selection:"
+    echo "Web Browsers (select one or more):"
     echo "  1. Brave Origin"
     echo "  2. Helium"
     echo "  3. Brave"
@@ -324,19 +324,44 @@ while true; do
     echo "  5. Firefox"
     echo "  6. Vivaldi"
     echo "  7. LibreWolf"
-    echo "  8. Skip browser installation"
-    read -r -p "Enter choice (1-8) [5]: " b_choice
-    case "${b_choice:-5}" in
-        1) BROWSER_CHOICE=1; info "Selected: Brave Origin"; break ;;
-        2) BROWSER_CHOICE=2; info "Selected: Helium"; break ;;
-        3) BROWSER_CHOICE=3; info "Selected: Brave"; break ;;
-        4) BROWSER_CHOICE=4; info "Selected: Zen Browser"; break ;;
-        5) BROWSER_CHOICE=5; info "Selected: Firefox"; break ;;
-        6) BROWSER_CHOICE=6; info "Selected: Vivaldi"; break ;;
-        7) BROWSER_CHOICE=7; info "Selected: LibreWolf"; break ;;
-        8) BROWSER_CHOICE=8; info "Skipping browser installation."; break ;;
-        *) echo "Please enter a number between 1 and 8." ;;
-    esac
+    echo "  a. Install all web browsers"
+    echo "  0. Skip web browser installation"
+    read -r -p "Enter your choices (e.g. 1,5 or 1 5, or a for all) [0]: " b_choices
+
+    if [ "$b_choices" = "0" ] || [ -z "$b_choices" ]; then
+        info "Skipping web browser installation."
+        SELECTED_BROWSERS=()
+        break
+    fi
+
+    if [[ "$b_choices" =~ ^[aA]$ ]]; then
+        b_choices="1 2 3 4 5 6 7"
+    fi
+
+    b_choices=$(echo "$b_choices" | tr ',' ' ')
+    SELECTED_BROWSERS=()
+    invalid_choice=false
+
+    for choice in $b_choices; do
+        case "$choice" in
+            1) append_unique_package SELECTED_BROWSERS brave-origin ;;
+            2) append_unique_package SELECTED_BROWSERS helium ;;
+            3) append_unique_package SELECTED_BROWSERS brave ;;
+            4) append_unique_package SELECTED_BROWSERS zen-browser ;;
+            5) append_unique_package SELECTED_BROWSERS firefox ;;
+            6) append_unique_package SELECTED_BROWSERS vivaldi ;;
+            7) append_unique_package SELECTED_BROWSERS librewolf ;;
+            *)
+                echo "Invalid choice: $choice"
+                invalid_choice=true
+                ;;
+        esac
+    done
+
+    if [ "$invalid_choice" = false ]; then
+        info "Selected web browsers: ${SELECTED_BROWSERS[*]}"
+        break
+    fi
 done
 
 INSTALL_LIBREOFFICE=0
@@ -767,43 +792,45 @@ install_selected_components() {
         run_cmd pacman -S --needed --noconfirm "${AUDIO_VIDEO_PACKAGES[@]}"
     fi
 
-    case "$BROWSER_CHOICE" in
-        1)
-            info "Installing Brave Origin..."
-            if [ "$DRY_RUN" = true ]; then
-                printf "%b  [dry-run]%b curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh\n" "${DIM}${YELLOW}" "${ALL_OFF}"
-            else
-                curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
-            fi
-            ;;
-        2)
-            info "Installing Helium Browser..."
-            as_user yay -S --needed --noconfirm helium-browser-bin
-            ;;
-        3)
-            info "Installing Brave..."
-            as_user yay -S --needed --noconfirm brave-bin
-            ;;
-        4)
-            info "Installing Zen Browser..."
-            as_user yay -S --needed --noconfirm zen-browser-bin
-            ;;
-        5)
-            info "Installing Firefox..."
-            run_cmd pacman -S --needed --noconfirm firefox
-            ;;
-        6)
-            info "Installing Vivaldi..."
-            run_cmd pacman -S --needed --noconfirm vivaldi
-            ;;
-        7)
-            info "Installing LibreWolf..."
-            as_user yay -S --needed --noconfirm librewolf
-            ;;
-        *)
-            info "Skipping browser installation."
-            ;;
-    esac
+    if [ "${#SELECTED_BROWSERS[@]}" -gt 0 ]; then
+        info "Installing web browsers: ${SELECTED_BROWSERS[*]}"
+        for browser in "${SELECTED_BROWSERS[@]}"; do
+            case "$browser" in
+                brave-origin)
+                    info "Installing Brave Origin..."
+                    if [ "$DRY_RUN" = true ]; then
+                        printf "%b  [dry-run]%b curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh\n" "${DIM}${YELLOW}" "${ALL_OFF}"
+                    else
+                        curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
+                    fi
+                    ;;
+                helium)
+                    info "Installing Helium Browser..."
+                    as_user yay -S --needed --noconfirm helium-browser-bin
+                    ;;
+                brave)
+                    info "Installing Brave..."
+                    as_user yay -S --needed --noconfirm brave-bin
+                    ;;
+                zen-browser)
+                    info "Installing Zen Browser..."
+                    as_user yay -S --needed --noconfirm zen-browser-bin
+                    ;;
+                firefox)
+                    info "Installing Firefox..."
+                    run_cmd pacman -S --needed --noconfirm firefox
+                    ;;
+                vivaldi)
+                    info "Installing Vivaldi..."
+                    run_cmd pacman -S --needed --noconfirm vivaldi
+                    ;;
+                librewolf)
+                    info "Installing LibreWolf..."
+                    as_user yay -S --needed --noconfirm librewolf
+                    ;;
+            esac
+        done
+    fi
 
     if [ "$INSTALL_LIBREOFFICE" -eq 1 ]; then
         info "Installing LibreOffice..."

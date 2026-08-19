@@ -67,7 +67,7 @@ When you run `sudo ./install.sh`, the wizard interactively guides you through:
    - `Dolby Atmos`: Installs EasyEffects and deploys the custom Dolby PipeWire profile.
    - `Skip`: Leaves audio settings untouched.
 4. **Media Players**: Choose any combination of `mpv`, `vlc`, `deadbeef`, `rhythmbox`, `elisa`, `dragon`, `haruna`, or install all.
-5. **Web Browser Selection**: Pick your preferred browser:
+5. **Web Browsers**: Choose any combination of **Brave Origin**, **Helium**, **Brave**, **Zen Browser**, **Firefox**, **Vivaldi**, **LibreWolf**, or install all:
    - **Brave Origin** (`curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh`)
    - **Helium** (`helium-browser-bin`)
    - **Brave** (`brave-bin`)
