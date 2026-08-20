@@ -1,3 +1,2 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- custom keymaps live here. LazyVim auto-loads this; leader keys are set in
+-- init.lua before lazy.nvim bootstraps. add with `vim.keymap.set`.

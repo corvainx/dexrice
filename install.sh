@@ -584,6 +584,7 @@ done
 
 PACKAGES=(
     hyprland
+    hyprmod
     polkit-gnome
     gnome-keyring
     hyprlock

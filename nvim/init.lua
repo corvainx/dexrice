@@ -1,10 +1,5 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+-- ryoku lazyvim starter.
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
--- disable markdown preview
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.conceallevel = 0
-  end,
-})
+require("config.lazy")

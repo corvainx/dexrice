@@ -1,3 +1,16 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+local opt = vim.opt
+
+opt.termguicolors = true
+opt.cursorline = true
+opt.number = true
+opt.relativenumber = true
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.wrap = false
+opt.smoothscroll = true
+opt.laststatus = 3
+opt.showmode = false
+
+vim.o.winblend = 0
+vim.o.pumblend = 0
