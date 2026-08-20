@@ -412,6 +412,7 @@ time_format = "{:%H:%M}"
     pinned = []
     provider_prefix = "/"
     show_app_actions = false
+    show_app_origin_indicator = true
     show_icons = true
     sort_by_usage = true
 
@@ -644,7 +645,7 @@ show_label = false
 type = "brightness"
 
 [widget.clock]
-font_family = "Arial Black"
+font_family = "JetBrainsMono NF ExtraBold"
 format = "{:%H:%M %a %b %d}"
 type = "clock"
 
