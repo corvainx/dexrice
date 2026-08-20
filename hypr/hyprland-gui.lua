@@ -11,8 +11,6 @@ hl.config({
 })
 
 -- Bezier curves
-hl.curve("winIn", { type = "bezier", points = { {0.1, 1.1}, {0.1, 1.1} } })
-hl.curve("winOut", { type = "bezier", points = { {0.3, -0.3}, {0.0, 1.0} } })
 hl.curve("wind", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
 -- Animations
@@ -20,14 +18,14 @@ hl.animation({
     leaf = "windowsIn",
     enabled = true,
     speed = 4.0,
-    bezier = "winIn",
+    bezier = "wind",
     style = "popin",
 })
 hl.animation({
     leaf = "windowsOut",
     enabled = true,
     speed = 4.0,
-    bezier = "winOut",
+    bezier = "wind",
     style = "popin",
 })
 hl.animation({
