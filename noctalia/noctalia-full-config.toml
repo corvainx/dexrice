@@ -342,6 +342,7 @@ scale = 1.0
     wifi = true
 
 [plugin_settings."noctalia/screen_recorder"]
+audio_codec = "aac"
 video_source = "focused"
 
 [plugins]
