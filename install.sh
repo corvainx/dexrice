@@ -660,6 +660,7 @@ PACKAGES=(
   yaru-icon-theme
   humanity-icon-theme
   cava
+  cliamp
   unimatrix
   noto-fonts-emoji
   ttf-dejavu
