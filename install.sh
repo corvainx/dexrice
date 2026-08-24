@@ -162,7 +162,7 @@ append_unique_package() {
 
 banner
 
-if pacman -Qq hyprland >/dev/null 2>&1 || pacman -Qq hyprland-git >/dev/null 2>&1; then
+if pacman -Qq hyprland >/dev/null 2>&1 || pacman -Qq hyprland-git >/dev/null 2>&1 || command -v Hyprland >/dev/null 2>&1 || command -v hyprland >/dev/null 2>&1; then
   info "Verified: Hyprland is already installed."
 else
   info "Hyprland is not installed. It will be installed automatically via pacman."
@@ -583,7 +583,6 @@ while true; do
 done
 
 PACKAGES=(
-  hyprland
   hyprmod
   polkit-gnome
   gnome-keyring
@@ -768,8 +767,22 @@ ensure_yay() {
   fi
 }
 
+ensure_hyprland() {
+  msg "Step 5: Checking for Hyprland compositor..."
+  if pacman -Qq hyprland >/dev/null 2>&1 || pacman -Qq hyprland-git >/dev/null 2>&1 || command -v Hyprland >/dev/null 2>&1 || command -v hyprland >/dev/null 2>&1; then
+    info "Hyprland is already installed."
+    return 0
+  fi
+
+  info "Hyprland is not detected. Installing Hyprland via pacman..."
+  if ! run_cmd pacman -S --needed --noconfirm hyprland; then
+    error "Failed to install Hyprland via pacman."
+    exit 1
+  fi
+}
+
 install_core_packages() {
-  msg "Step 5: Installing core desktop packages and defaults..."
+  msg "Step 6: Installing core desktop packages and defaults..."
   if ! run_cmd pacman -S --needed --noconfirm "${PACKAGES[@]}"; then
     info "Retrying core package installation via yay to resolve any AUR dependencies..."
     as_user yay -S --needed --noconfirm "${PACKAGES[@]}"
@@ -783,12 +796,12 @@ install_core_packages() {
 }
 
 install_noctalia() {
-  msg "Step 6: Installing Noctalia shell (noctalia-git)..."
+  msg "Step 7: Installing Noctalia shell (noctalia-git)..."
   as_user yay -S --needed --noconfirm noctalia-git
 }
 
 install_selected_components() {
-  msg "Step 7: Installing user-selected components..."
+  msg "Step 8: Installing user-selected components..."
 
   if [ "${#AUDIO_VIDEO_PACKAGES[@]}" -gt 0 ]; then
     info "Installing audio/video players: ${AUDIO_VIDEO_PACKAGES[*]}"
@@ -876,7 +889,7 @@ install_selected_components() {
 }
 
 configure_services() {
-  msg "Step 8: Configuring system services..."
+  msg "Step 9: Configuring system services..."
 
   if [ "$INSTALL_PRINTER_SUPPORT" -eq 1 ]; then
     info "Enabling and starting CUPS service..."
@@ -894,7 +907,7 @@ setup_ddcutil() {
     return 0
   fi
 
-  msg "Step 9: Setting up ddcutil monitor brightness control..."
+  msg "Step 10: Setting up ddcutil monitor brightness control..."
   run_cmd pacman -S --needed --noconfirm ddcutil
   as_user yay -S --needed --noconfirm ddcutil-service 2>/dev/null || true
 
@@ -920,7 +933,7 @@ setup_sddm() {
     return 0
   fi
 
-  msg "Step 10: Installing SDDM and configuring matugen-minimal theme..."
+  msg "Step 11: Installing SDDM and configuring matugen-minimal theme..."
   run_cmd pacman -S --needed --noconfirm sddm
   run_cmd systemctl enable sddm
 
@@ -982,7 +995,7 @@ EOF
 }
 
 set_default_file_manager() {
-  msg "Step 11: Setting GNOME Nautilus as default file manager & configuring bookmarks..."
+  msg "Step 12: Setting GNOME Nautilus as default file manager & configuring bookmarks..."
 
   as_user mkdir -p "$CONFIG_DIR/gtk-3.0"
   as_user xdg-mime default org.gnome.Nautilus.desktop inode/directory application/x-gnome-saved-search
@@ -1003,12 +1016,12 @@ EOF
 }
 
 update_user_directories() {
-  msg "Step 12: Updating standard user directories..."
+  msg "Step 13: Updating standard user directories..."
   as_user xdg-user-dirs-update
 }
 
 deploy_configs() {
-  msg "Step 13: Deploying dotfiles, icons, and wallpapers..."
+  msg "Step 14: Deploying dotfiles, icons, and wallpapers..."
 
   as_user mkdir -p "$CONFIG_DIR"
   as_user mkdir -p "$ACTUAL_USER_HOME/.local/share/icons"
@@ -1098,7 +1111,7 @@ apply_dolby_pipewire_profile() {
     return 0
   fi
 
-  msg "Step 14: Applying Dolby Atmos PipeWire profile..."
+  msg "Step 15: Applying Dolby Atmos PipeWire profile..."
   local pw_src="$REPO_DIR/pipewire"
   local pw_dest="$CONFIG_DIR/pipewire"
 
@@ -1119,7 +1132,7 @@ restore_vscodium() {
     return 0
   fi
 
-  msg "Step 15: Restoring VSCodium configuration & extensions..."
+  msg "Step 16: Restoring VSCodium configuration & extensions..."
 
   local vscodium_user_dir="$CONFIG_DIR/VSCodium/User"
   as_user mkdir -p "$vscodium_user_dir"
@@ -1187,6 +1200,7 @@ main() {
   remove_conflicting_packages
   update_system_packages
   ensure_yay
+  ensure_hyprland
   install_core_packages
   install_noctalia
   install_selected_components
