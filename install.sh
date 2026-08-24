@@ -54,6 +54,23 @@ else
   ACTUAL_USER_HOME="$HOME"
 fi
 
+TEMP_SUDOERS_FILE="/etc/sudoers.d/99-dexrice-installer-temp"
+cleanup_sudoers() {
+  if [ -f "$TEMP_SUDOERS_FILE" ]; then
+    rm -f "$TEMP_SUDOERS_FILE"
+  fi
+}
+trap cleanup_sudoers EXIT INT TERM HUP
+
+if [ "$DRY_RUN" = false ] && [[ $EUID -eq 0 ]]; then
+  mkdir -p /etc/sudoers.d
+  echo "$ACTUAL_USER ALL=(ALL) NOPASSWD: ALL" >"$TEMP_SUDOERS_FILE"
+  chmod 0440 "$TEMP_SUDOERS_FILE"
+  if command -v visudo >/dev/null 2>&1 && ! visudo -c -f "$TEMP_SUDOERS_FILE" >/dev/null 2>&1; then
+    rm -f "$TEMP_SUDOERS_FILE"
+  fi
+fi
+
 CONFIG_DIR="$ACTUAL_USER_HOME/.config"
 BACKUP_TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 BACKUP_DIR="$ACTUAL_USER_HOME/.config-backup/$BACKUP_TIMESTAMP"
