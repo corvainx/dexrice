@@ -6,6 +6,11 @@ set -U fish_color_param d4d4d4
 set -U fish_color_command d4d4d4
 set -U fish_color_valid_path d4d4d4
 
+# Run fastfetch on new interactive shells             You may comment these 3 lines if you don't want to see fastfetch everytime you open the terminal
+if status is-interactive
+    fastfetch
+end
+
 function starship_transient_prompt_func
     starship module character
 end
