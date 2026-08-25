@@ -103,7 +103,7 @@ The desktop is keyboard-driven with `SUPER` (Windows key) as the main modifier:
 | `SUPER + E` | File Manager | `nautilus --new-window` |
 | `SUPER + C` | Code Editor | `codium` |
 | `SUPER + B` | Web Browser | `browser-launcher.sh` |
-| `SUPER + D` | Application Launcher | `noctalia msg panel-toggle launcher` |
+| `SUPER + SPACE` | Application Launcher | `noctalia msg panel-toggle launcher` |
 | `SUPER + T` | Settings Panel | `noctalia msg settings-toggle` |
 | `SUPER + L` | Screen Lock | `noctalia msg screen-lock` |
 | `SUPER + S` | Steam | `steam` |
