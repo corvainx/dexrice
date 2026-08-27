@@ -1,18 +1,18 @@
 local function get_shell()
-	local shell = os.getenv("SHELL") or ""
-	local known = { "fish", "zsh", "bash", "nu" }
+	--	local shell = os.getenv("SHELL") or ""
+	--	local known = { "fish", "zsh", "bash", "nu" }
 
-	for _, s in ipairs(known) do
-		if shell:match(s) then
-			return s
-		end
-	end
+	--	for _, s in ipairs(known) do
+	--		if shell:match(s) then
+	--			return s
+	--		end
+	--	end
 
-	for _, s in ipairs({ "fish", "zsh", "bash" }) do
-		if vim.fn.executable(s) == 1 then
-			return s
-		end
-	end
+	--	for _, s in ipairs({ "fish", "zsh", "bash" }) do
+	--		if vim.fn.executable(s) == 1 then
+	--			return s
+	--		end
+	--	end
 
 	return "bash"
 end
