@@ -601,6 +601,7 @@ done
 
 PACKAGES=(
   hyprmod
+  flameshot
   polkit-gnome
   gnome-keyring
   hyprlock
