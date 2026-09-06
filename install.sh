@@ -16,6 +16,39 @@ for arg in "$@"; do
     echo "Usage:"
     echo "  sudo ./install.sh          # Full interactive installation"
     echo "  ./install.sh --dry-run     # Preview actions without changing system"
+    echo ""
+    echo "What this installer can do:"
+    echo "  1. System & Repositories:"
+    echo "     - Enable Multilib and Chaotic-AUR repositories"
+    echo "     - Install/verify 'yay' AUR helper"
+    echo "     - Upgrade system packages"
+    echo "  2. Core Desktop Environment:"
+    echo "     - Hyprland Wayland compositor"
+    echo "     - Noctalia desktop shell (noctalia-git) & bar"
+    echo "     - Kitty terminal (with Catppuccin, Tokyo Night, etc.)"
+    echo "     - Fish shell + Starship prompt + Fastfetch"
+    echo "     - GNOME Nautilus file manager + Sushi quicklook"
+    echo "  3. Theming & Personalization:"
+    echo "     - Matugen Material You color generation"
+    echo "     - Bibata cursor & macOS cursor themes"
+    echo "     - JetBrains Mono Nerd Font"
+    echo "     - Wallpapers (~/Pictures/backgrounds)"
+    echo "     - SDDM login manager with matugen-minimal Wayland theme"
+    echo "  4. Audio Setup:"
+    echo "     - EasyEffects suite OR Dolby Atmos PipeWire profile"
+    echo "     - Media players (mpv, vlc, deadbeef, haruna, rhythmbox, elisa)"
+    echo "  5. Applications & Tools:"
+    echo "     - Web browsers (Brave Origin, Helium, Brave, Zen, Firefox, Vivaldi, LibreWolf)"
+    echo "     - Gaming suite (Steam, MangoHud, ProtonPlus, Wine, Lutris, Heroic, Prism, etc.)"
+    echo "     - Optional apps (VSCodium with restored settings/extensions, VS Code, Obsidian, OBS)"
+    echo "     - Office productivity (LibreOffice Fresh)"
+    echo "  6. Hardware Support:"
+    echo "     - Nvidia GPU Hyprland optimizations"
+    echo "     - ddcutil external monitor brightness control"
+    echo "     - Bluetooth support (bluez + blueman)"
+    echo "     - CUPS printer support + drivers"
+    echo "  7. Safety & Backups:"
+    echo "     - Safely backs up existing ~/.config to ~/.config-backup/<timestamp>"
     exit 0
     ;;
   *)
@@ -186,10 +219,26 @@ else
 fi
 
 if [ "$DRY_RUN" = true ]; then
-  warn "Running in DRY-RUN mode. No changes will be made to your system."
+  echo ""
+  warn "======================== DRY-RUN MODE ACTIVE ========================"
+  warn "Simulating installation steps only. No packages will be installed,"
+  warn "no configuration files modified, and no system services changed."
+  warn "===================================================================="
+  echo ""
 fi
 
-echo "This script will install custom dotfiles for Hyprland, Noctalia, and the Chaotic AUR on Arch Linux."
+echo "This installer configures a complete Hyprland desktop environment:"
+echo "  * Repositories: Enables Multilib & Chaotic-AUR (with GPG keyring)"
+echo "  * AUR Helper:   Verifies or builds/installs 'yay'"
+echo "  * Core Desktop: Hyprland, Noctalia desktop shell, Kitty, Fish, Starship, Fastfetch"
+echo "  * File Manager: GNOME Nautilus with Sushi quicklook & file-roller archive support"
+echo "  * Theming:      Matugen colors, Bibata & macOS cursor themes, JetBrains Nerd Font"
+echo "  * Login Mgr:    SDDM with matugen-minimal Wayland theme"
+echo "  * Audio:        EasyEffects suite OR Dolby Atmos PipeWire profile"
+echo "  * Applications: Modular selection of Browsers, Media Players, & Gaming tools"
+echo "  * Hardware:     Nvidia Hyprland fixes, Bluetooth, CUPS printing & ddcutil brightness"
+echo "  * Safety:       Automatically backs up existing ~/.config to ~/.config-backup/"
+echo ""
 while true; do
   read -r -p "Would you like to proceed? (y/n): " proceed
   case "$proceed" in
@@ -472,13 +521,13 @@ OPTIONALPKG=(
 )
 
 declare -A OPTIONALPKG_DESC=(
-  [vscodium - bin]="VSCodium Open Source Code Editor (auto-restores settings & extensions)"
-  [visual - studio - code - bin]="Visual Studio Code editor"
+  [vscodium-bin]="VSCodium Open Source Code Editor (auto-restores settings & extensions)"
+  [visual-studio-code-bin]="Visual Studio Code editor"
   [obsidian]="Markdown text editor / knowledge base"
-  [obs - studio]="OBS Studio recording & streaming software"
-  [upscayl - desktop - git]="Image upscaler (desktop GUI)"
-  [video - downloader]="Download videos locally from various sources"
-  [mission - center]="Sleek task manager / system monitor"
+  [obs-studio]="OBS Studio recording & streaming software"
+  [upscayl-desktop-git]="Image upscaler (desktop GUI)"
+  [video-downloader]="Download videos locally from various sources"
+  [mission-center]="Sleek task manager / system monitor"
 )
 
 SELECTED_OPTIONAL_PACKAGES=()
@@ -742,7 +791,16 @@ setup_chaotic_aur() {
 
 remove_conflicting_packages() {
   msg "Step 2: Removing conflicting packages..."
-  run_cmd pacman -Rns --noconfirm dolphin polkit-kde-agent vim thunar thunar-archive-plugin thunar-volman 2>/dev/null || true
+  local conflicts=(dolphin polkit-kde-agent vim thunar thunar-archive-plugin thunar-volman)
+  local to_remove=()
+  for pkg in "${conflicts[@]}"; do
+    if pacman -Qq "$pkg" >/dev/null 2>&1; then
+      to_remove+=("$pkg")
+    fi
+  done
+  if [ "${#to_remove[@]}" -gt 0 ]; then
+    run_cmd pacman -Rns --noconfirm "${to_remove[@]}" || true
+  fi
 }
 
 update_system_packages() {
@@ -824,7 +882,9 @@ install_selected_components() {
 
   if [ "${#AUDIO_VIDEO_PACKAGES[@]}" -gt 0 ]; then
     info "Installing audio/video players: ${AUDIO_VIDEO_PACKAGES[*]}"
-    run_cmd pacman -S --needed --noconfirm "${AUDIO_VIDEO_PACKAGES[@]}"
+    if ! run_cmd pacman -S --needed --noconfirm "${AUDIO_VIDEO_PACKAGES[@]}"; then
+      as_user yay -S --needed --noconfirm "${AUDIO_VIDEO_PACKAGES[@]}"
+    fi
   fi
 
   if [ "${#SELECTED_BROWSERS[@]}" -gt 0 ]; then
@@ -833,11 +893,7 @@ install_selected_components() {
       case "$browser" in
       brave-origin)
         info "Installing Brave Origin..."
-        if [ "$DRY_RUN" = true ]; then
-          printf "%b  [dry-run]%b curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh\n" "${DIM}${YELLOW}" "${ALL_OFF}"
-        else
-          curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
-        fi
+        as_user yay -S --needed --noconfirm brave-origin-bin
         ;;
       helium)
         info "Installing Helium Browser..."
@@ -1190,7 +1246,25 @@ reboot_prompt() {
   echo ""
 
   if [ "$DRY_RUN" = true ]; then
-    info "Dry run simulation complete. No changes were made."
+    echo ""
+    echo "  ================================================================"
+    printf "%b  [DRY RUN SUMMARY] Simulated Setup Overview%b\n" "${CYAN}" "${ALL_OFF}"
+    echo "  ================================================================"
+    echo "    Target User:       $ACTUAL_USER"
+    echo "    Target Config:     $CONFIG_DIR"
+    echo "    Backup Directory:  $BACKUP_DIR"
+    echo "    Audio Profile:     $AUDIO_MODE"
+    echo "    Nvidia Fixes:      $([ "$INSTALL_NVIDIA_OPTIONAL" -eq 1 ] && echo 'Enabled' || echo 'Disabled')"
+    echo "    SDDM Wayland:      $([ "$INSTALL_SDDM" -eq 1 ] && echo 'Enabled (matugen-minimal)' || echo 'Skipped')"
+    echo "    Bluetooth:         $([ "$INSTALL_BLUETOOTH_PACKAGES" -eq 1 ] && echo 'Enabled' || echo 'Skipped')"
+    echo "    CUPS Printing:     $([ "$INSTALL_PRINTER_SUPPORT" -eq 1 ] && echo 'Enabled' || echo 'Skipped')"
+    echo "    ddcutil:           $([ "$DDCUTIL_ENABLED" -eq 1 ] && echo 'Enabled' || echo 'Skipped')"
+    echo "    Web Browsers:      ${SELECTED_BROWSERS[*]:-None}"
+    echo "    Media Players:     ${AUDIO_VIDEO_PACKAGES[*]:-None}"
+    echo "    Gaming Tools:      ${GAMING_SELECTED_PACKAGES[*]:-None}"
+    echo "    Optional Apps:     ${SELECTED_OPTIONAL_PACKAGES[*]:-None}"
+    echo "  ================================================================"
+    info "Dry run simulation complete. No changes were made to your system."
     exit 0
   fi
 
