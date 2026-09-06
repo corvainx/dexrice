@@ -769,19 +769,26 @@ setup_chaotic_aur() {
     fi
   fi
 
-  if grep -q "\[chaotic-aur\]" "$pacman_conf" 2>/dev/null; then
-    info "Chaotic-AUR is already configured."
+  if grep -Eq '^[[:space:]]*\[chaotic-aur\][[:space:]]*$' "$pacman_conf" 2>/dev/null; then
+    info "Chaotic-AUR is already configured and enabled."
   else
+    if grep -Eq '^[[:space:]]*#[[:space:]]*\[chaotic-aur\][[:space:]]*$' "$pacman_conf" 2>/dev/null; then
+      info "Uncommenting Chaotic-AUR repository in $pacman_conf..."
+      run_cmd sed -i '/^[[:space:]]*#[[:space:]]*\[chaotic-aur\][[:space:]]*$/,/^[[:space:]]*#[[:space:]]*Include[[:space:]]*=[[:space:]]*\/etc\/pacman\.d\/chaotic-mirrorlist[[:space:]]*$/ s/^[[:space:]]*#[[:space:]]*//' "$pacman_conf"
+    fi
+
     info "Adding Chaotic-AUR GPG key and keyring..."
     run_cmd pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
     run_cmd pacman-key --lsign-key 3056513887B78AEB
     run_cmd pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
     run_cmd pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
-    if [ "$DRY_RUN" = true ]; then
-      printf "%b  [dry-run]%b Append [chaotic-aur] section to %s\n" "${DIM}${YELLOW}" "${ALL_OFF}" "$pacman_conf"
-    else
-      printf "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n" >>"$pacman_conf"
+    if ! grep -Eq '^[[:space:]]*\[chaotic-aur\][[:space:]]*$' "$pacman_conf" 2>/dev/null; then
+      if [ "$DRY_RUN" = true ]; then
+        printf "%b  [dry-run]%b Append [chaotic-aur] section to %s\n" "${DIM}${YELLOW}" "${ALL_OFF}" "$pacman_conf"
+      else
+        printf "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n" >>"$pacman_conf"
+      fi
     fi
   fi
 
